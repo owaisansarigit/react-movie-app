@@ -1,7 +1,5 @@
 import React from "react";
 import { useAppContext } from "./context";
-import Search from "./Search";
-
 const App = () => {
   const { data, isError, isLoading } = useAppContext();
 
@@ -21,7 +19,7 @@ const App = () => {
             key={movie.imdbID}
             className="bg-white rounded overflow-hidden shadow-md hover:shadow-lg transition duration-300"
           >
-            <a href={`/movie/${movie.imdbID}`}>
+            <a href={`/${movie.imdbID}`}>
               <div className="p-4">
                 <div className="text-xl mb-2">{movie.Title}</div>
               </div>
