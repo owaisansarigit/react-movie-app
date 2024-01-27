@@ -36,51 +36,53 @@ const Details = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="mt-4 mx-auto rounded-xl overflow-hidden shadow-md flex p-5">
-            <img
-              className="  object-cover object-center rounded-xl"
-              src={singleMovie.Poster}
-              alt={singleMovie.Title}
-            />
+          <div className="h-screen flex justify-center item-center ">
+            <div className=" mx-auto my-auto rounded-xl overflow-hidden shadow-md flex p-5">
+              <img
+                className="  object-cover object-center rounded-xl"
+                src={singleMovie.Poster}
+                alt={singleMovie.Title}
+              />
 
-            <div className="w-1/2 px-6 py-4">
-              <h3 className="font-bold text-xl mb-2">{singleMovie.Title}</h3>
-              <p className="text-gray-700 text-base">{singleMovie.Plot}</p>
+              <div className="w-1/2 px-6 py-4">
+                <h3 className="font-bold text-xl mb-2">{singleMovie.Title}</h3>
+                <p className="text-gray-700 text-base">{singleMovie.Plot}</p>
 
-              {/* Other movie details */}
-              <div className="mt-4">
-                <p>
-                  <strong>Actors:</strong> {singleMovie.Actors}
-                </p>
-                <p>
-                  <strong>Awards:</strong> {singleMovie.Awards}
-                </p>
-                <p>
-                  <strong>Box Office:</strong> {singleMovie.BoxOffice}
-                </p>
-                <p>
-                  <strong>Country:</strong> {singleMovie.Country}
-                </p>
-                <p>
-                  <strong>Runtime:</strong> {singleMovie.Runtime}
-                </p>
-                <p>
-                  <strong>Rated:</strong> {singleMovie.Rated}
-                </p>
-                <p className="mb-6">
-                  <strong>Ratings:</strong>
-                  {singleMovie.Ratings.map((rating, index) => (
-                    <span key={index} className="ml-2">
-                      {rating.Source}: {rating.Value}
-                    </span>
-                  ))}
-                </p>
+                {/* Other movie details */}
+                <div className="mt-4">
+                  <p>
+                    <strong>Actors:</strong> {singleMovie.Actors}
+                  </p>
+                  <p>
+                    <strong>Awards:</strong> {singleMovie.Awards}
+                  </p>
+                  <p>
+                    <strong>Box Office:</strong> {singleMovie.BoxOffice}
+                  </p>
+                  <p>
+                    <strong>Country:</strong> {singleMovie.Country}
+                  </p>
+                  <p>
+                    <strong>Runtime:</strong> {singleMovie.Runtime}
+                  </p>
+                  <p>
+                    <strong>Rated:</strong> {singleMovie.Rated}
+                  </p>
+                  <p className="mb-6">
+                    <strong>Ratings:</strong>
+                    {singleMovie.Ratings.map((rating, index) => (
+                      <span key={index} className="ml-2">
+                        {rating.Source}: {rating.Value}
+                      </span>
+                    ))}
+                  </p>
                   <Link
                     to="/"
                     className="relative left-4  bg-blue-500 text-white py-2 px-4 rounded-full"
                   >
                     Go Back
                   </Link>
+                </div>
               </div>
             </div>
           </div>

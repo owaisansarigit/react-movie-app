@@ -17,13 +17,13 @@ const AppProvider = ({ children }) => {
     try {
       setLoading(true); // Set loading to true when starting the fetch
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${name}&apikey=${apiKey}`        
+        `http://www.omdbapi.com/?s=${name}&apikey=${apiKey}`
       );
       const result = await response.json();
       if (result.Search) {
+        setLoading(false);
         setData(result.Search);
-      } else {
-        setData([]);
+        console.log(data);
       }
     } catch (error) {
       setIsError(true);
