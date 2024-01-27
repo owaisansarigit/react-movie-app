@@ -10,7 +10,9 @@ const AppProvider = ({ children }) => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 5000);
   }, [name]);
 
   const fetchData = async () => {

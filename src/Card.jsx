@@ -3,14 +3,18 @@ import { useAppContext } from "./context";
 import { Link } from "react-router-dom";
 
 const App = () => {
-  const { data, isError, isLoading } = useAppContext();
+  const { data, isError, loading } = useAppContext();
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="text-center mt-4">
-        Fetching data...{" "}
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
+        <div
+          className="spinner-border flex justify-center items-center "
+          role="status"
+        >
+          <span className="visually-hidden text-2xl text-white">
+            Loading.....
+          </span>
         </div>
       </div>
     );

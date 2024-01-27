@@ -32,12 +32,12 @@ const Details = () => {
 
   return (
     <>
-      <div className="flex w-full justify-center items-center">
+      <div className="h-screen flex w-full justify-center items-center bg-gradient-to-r from-blue-100 to-pink-100">
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="h-screen flex justify-center item-center ">
-            <div className=" mx-auto my-auto rounded-xl overflow-hidden shadow-md flex p-5">
+          <div className=" flex justify-center item-center ">
+            <div className=" mx-auto my-auto rounded-xl overflow-hidden shadow-lg flex p-5">
               <img
                 className="  object-cover object-center rounded-xl"
                 src={singleMovie.Poster}
