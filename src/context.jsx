@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${name}&apikey=${apiKey}`
+        `https://www.omdbapi.com/?s=${name}&apikey=${apiKey}`
       );
       const result = await response.json();
       if (result.Search) {
