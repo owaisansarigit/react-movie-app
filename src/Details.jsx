@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const Details = () => {
-  const apiKey = "bab4b3d6";
+  const apiKey = import.meta.env.VITE_KEY;
   const [singleMovie, setSingleMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -11,7 +11,7 @@ const Details = () => {
     const fetchMovieDetails = async () => {
       try {
         let res = await fetch(
-          `http://www.omdbapi.com/?i=${id}&apikey=${apiKey}`
+          `https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`
         );
         let data = await res.json();
 
