@@ -10,7 +10,9 @@ const AppProvider = ({ children }) => {
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    setTimeout(() => {
+      fetchData();
+    }, 5000);
   }, [name]);
 
   const fetchData = async () => {
@@ -21,9 +23,9 @@ const AppProvider = ({ children }) => {
       );
       const result = await response.json();
       if (result.Search) {
+        setLoading(false);
         setData(result.Search);
-      } else {
-        setData([]);
+        console.log(data);
       }
     } catch (error) {
       setIsError(true);

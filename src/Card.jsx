@@ -3,18 +3,33 @@ import { useAppContext } from "./context";
 import { Link } from "react-router-dom";
 
 const App = () => {
-  const { data, isError, isLoading } = useAppContext();
+  const { data, isError, loading } = useAppContext();
 
-  if (isLoading) {
-    return <div>Fetching data...</div>;
+  if (loading) {
+    return (
+      <div className="text-center mt-4">
+        <div
+          className="spinner-border flex justify-center items-center "
+          role="status"
+        >
+          <span className="visually-hidden text-2xl text-white">
+            Loading.....
+          </span>
+        </div>
+      </div>
+    );
   }
 
   if (isError) {
-    return <div>Error loading data</div>;
+    return (
+      <div className="text-center mt-4">
+        <div>Error loading data. Please try again later.</div>
+      </div>
+    );
   }
 
   if (data.length === 0) {
-    return <div>No movies found.</div>;
+    return <div className="text-center mt-4">No movies found.</div>;
   }
 
   return (
@@ -23,10 +38,10 @@ const App = () => {
         {data.map((movie) => (
           <div
             key={movie.imdbID}
-            className="rounded-lg hidden shadow-md hover:shadow-lg transition duration-300 relative mt-4"
+            className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition duration-300 relative mt-4"
           >
             <Link to={`/${movie.imdbID}`}>
-              <div className="relative group">
+              <div className="group">
                 <img
                   src={
                     movie.Poster !== "N/A"
@@ -34,18 +49,16 @@ const App = () => {
                       : "/placeholder-image.jpg"
                   }
                   alt={movie.Title}
-                  className=" object-cover object-center w-full h-full rounded-t-md group-hover:opacity-75 transition-opacity"
+                  className="object-cover object-center w-full h-48 md:h-64 rounded-t-md group-hover:opacity-75 transition-opacity"
                 />
                 {movie.Poster === "N/A" && (
-                  <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-300">
+                  <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-white">
                     Image Not Available
                   </div>
                 )}
               </div>
-              <div className="absolute top-0 left-0 right-0 text-white p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="text-xl font-semibold">{movie.Title}</div>
-              </div>
               <div className="p-4">
+                <div className="text-xl font-semibold mb-2">{movie.Title}</div>
                 <p className="text-gray-700">{movie.Plot}</p>
               </div>
             </Link>
