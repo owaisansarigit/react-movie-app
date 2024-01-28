@@ -1,9 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 const AppContext = createContext();
-
 const AppProvider = ({ children }) => {
-  const apiKey = "bab4b3d6";
+  const apiKey = import.meta.env.VITE_KEY;
   const [name, setName] = useState("avengers");
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
