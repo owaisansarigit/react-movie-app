@@ -3,7 +3,7 @@ import { useAppContext } from "./context";
 import { Link } from "react-router-dom";
 
 const App = () => {
-  const { data, isError, loading } = useAppContext();
+  const { data, isError, loading, name } = useAppContext();
 
   if (loading) {
     return (
@@ -12,7 +12,7 @@ const App = () => {
           className="spinner-border flex justify-center items-center "
           role="status"
         >
-          <span className="visually-hidden text-2xl text-white">
+          <span className="visually-hidden text-4xl font-bold text-black">
             Loading.....
           </span>
         </div>
@@ -22,7 +22,7 @@ const App = () => {
 
   if (isError) {
     return (
-      <div className="text-center mt-4">
+      <div className="text-center mt-4 text-4xl text-red">
         <div>Error loading data. Please try again later.</div>
       </div>
     );
@@ -49,7 +49,8 @@ const App = () => {
                       : "/placeholder-image.jpg"
                   }
                   alt={movie.Title}
-                  className="object-cover object-center w-full h-48 md:h-64 rounded-t-md group-hover:opacity-75 transition-opacity"
+                  className="object-center rounded-xl w-full rounded-t-md group-hover:opacity-75 transition-opacity"
+                  style={{ maxHeight: "28rem" }}
                 />
                 {movie.Poster === "N/A" && (
                   <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-white">

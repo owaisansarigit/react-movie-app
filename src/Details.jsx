@@ -34,7 +34,7 @@ const Details = () => {
     <>
       <div className="h-screen flex w-full justify-center items-center bg-gradient-to-r from-blue-100 to-pink-100">
         {loading ? (
-          <p>Loading...</p>
+          <p className="font-bold text-3xl">Loading...</p>
         ) : (
           <div className=" flex justify-center item-center ">
             <div className=" mx-auto my-auto rounded-xl overflow-hidden shadow-lg flex p-5">

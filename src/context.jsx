@@ -12,7 +12,7 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     setTimeout(() => {
       fetchData();
-    }, 5000);
+    }, 1000);
   }, [name]);
 
   const fetchData = async () => {
